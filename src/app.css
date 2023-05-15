@@ -6,13 +6,26 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-1: #3d5a80;
+  --bg-2: #98c1d9;
+  --bg-3: #e0fbfc;
+  --bg-4: #ee6c4d;
+  --bg-5: #293241;
+  --black: hsl(0, 0%, 10%);
+  --white: hsl(0, 0%, 95%);
+}
+
 body {
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
+  background: var(--black);
+  color: var(--white);
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 /* ///////////////// */
