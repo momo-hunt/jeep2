@@ -51,7 +51,8 @@ export const formatFormDate = () => {
 };
 
 export const formatFormTime = () => {
-  let t = new Date().getHours();
+  let t = new Date().toLocaleTimeString("en-GB");
+  t = t.substring(0, 2);
   // console.log(t);
   return t + ":00";
   // HH-mm-ss

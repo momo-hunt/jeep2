@@ -1,9 +1,6 @@
 <script>
   import FormX from "$lib/components/FormX.svelte";
-  import InputX from "$lib/elements/InputX.svelte";
-  import ButtonSubmit from "$lib/elements/ButtonSubmit.svelte";
   import { formatFormDate, formatFormTime } from "$lib/helper";
-  import SelectX from "$lib/elements/SelectX.svelte";
 
   export let data;
   let title = "form-tambah-pemakaian";
@@ -42,7 +39,7 @@
     {/if}
   {/each}
 
-  <ButtonSubmit>Simpan</ButtonSubmit>
+  <button type="submit">Simpan</button>
 </FormX>
 
 <style>
@@ -51,6 +48,7 @@
     margin: 0.5rem 0 0.2rem 0;
     color: var(--bg-2);
     opacity: 0.8;
+    font-size: 0.9em;
   }
 
   input,
@@ -72,7 +70,29 @@
   select:focus {
     outline-color: var(--bg-2);
     outline-offset: 2px;
-    background: var(--bg-2);
-    color: var(--black);
+    background: var(--bg-1);
+    color: var(--white);
+  }
+
+  button[type="submit"] {
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    background: var(--bg-4);
+    padding: 1rem;
+    font-size: inherit;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 1rem;
+    color: inherit;
+    text-transform: uppercase;
+    outline: 1px solid var(--bg-5);
+  }
+
+  button[type="submit"]:hover {
+    transition: all 0.3s ease;
+    background: var(--bg-1);
+    outline: 1px solid var(--bg-3);
   }
 </style>

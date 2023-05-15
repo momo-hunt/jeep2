@@ -4,15 +4,16 @@
   import { onMount } from "svelte";
   import Button from "$lib/elements/Button.svelte";
   import Spinner from "$lib/elements/Spinner.svelte";
+  import HeaderTitle from "$lib/components/HeaderTitle.svelte";
 
   onMount(() => {
     list.fetchData($list, "pemakaian", { limit: 10, page: 1 });
   });
 
-  $: console.log($list);
+  // $: console.log($list);
 </script>
 
-<h2>Pemakaian</h2>
+<HeaderTitle title="Daftar Pemakaian" />
 
 {#if !$list.pemakaian.loading || $list.pemakaian.data.length > 0}
   <ListView list={$list?.pemakaian?.data} />

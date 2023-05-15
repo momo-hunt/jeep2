@@ -8,6 +8,7 @@
   import ButtonSubmit from "$lib/elements/ButtonSubmit.svelte";
 
   import { formatDateForm, formatTimeForm } from "$lib/helper";
+  import HeaderTitle from "$lib/components/HeaderTitle.svelte";
 
   export let data;
   let id = $page?.params?.id;
@@ -19,7 +20,7 @@
   });
 </script>
 
-<h2>Ubah Pemakaian</h2>
+<HeaderTitle title="Ubah Pemakaian" />
 
 {#if $obj.loading}
   <Spinner size="l">memuat</Spinner>

@@ -4,6 +4,7 @@
   import { onMount } from "svelte";
   import Spinner from "$lib/elements/Spinner.svelte";
   import { viewTanggalIndo } from "$lib/helper";
+  import HeaderTitle from "$lib/components/HeaderTitle.svelte";
 
   export let data;
   let id = $page?.params?.id;
@@ -13,7 +14,7 @@
   });
 </script>
 
-<h2>Detail</h2>
+<HeaderTitle title="Detail Pemakaian" />
 
 {#if $obj.loading}
   <Spinner size="l">memuat</Spinner>
@@ -31,7 +32,7 @@
         {:else if name == "jam_berangkat" || name == "jam_kembali"}
           <h3>{viewTanggalIndo($obj?.[name], "time")}</h3>
         {:else}
-          <h3>{$obj?.[name]}</h3>
+          <h3>{$obj?.[name].name ?? $obj?.[name]}</h3>
         {/if}
       </div>
     {/each}
@@ -39,21 +40,19 @@
 {/if}
 
 <style>
-  h2 {
-    margin: 1rem;
-  }
-
   section > div {
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid var(--bg-5);
     padding: 0.5rem 1rem;
   }
 
   section > div > h3 {
     margin: 0 0.5rem;
+    color: var(--bg-2);
   }
 
   section > div > span {
     opacity: 0.6;
+    color: var(--bg-3);
   }
 
   .action {

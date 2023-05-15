@@ -1,5 +1,6 @@
 <script>
   import { goto } from "$app/navigation";
+  import HeaderTitle from "$lib/components/HeaderTitle.svelte";
   import FormTambah from "./FormTambah.svelte";
 
   export let data;
@@ -11,15 +12,9 @@
   }
 </script>
 
-<h2>Tambah Pemakaian</h2>
+<HeaderTitle title="Tambah Pemakaian" />
 
 <FormTambah {data} on:submit={onSubmit} />
 
 <style>
-  h2 {
-    font-family: "Poppins", sans-serif;
-    /* font-weight: 600; */
-    margin: 1rem;
-    color: var(--bg-2);
-  }
 </style>
