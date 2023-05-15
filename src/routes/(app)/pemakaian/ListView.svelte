@@ -50,6 +50,10 @@
     text-align: right;
   }
 
+  .left > div {
+    font-size: 1.2em;
+  }
+
   .right h3 {
     color: var(--bg-2);
     font-family: "Poppins", sans-serif;

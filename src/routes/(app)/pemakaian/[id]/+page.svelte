@@ -32,7 +32,7 @@
         {:else if name == "jam_berangkat" || name == "jam_kembali"}
           <h3>{viewTanggalIndo($obj?.[name], "time")}</h3>
         {:else}
-          <h3>{$obj?.[name].name ?? $obj?.[name]}</h3>
+          <h3>{$obj?.[name]?.name ?? $obj?.[name]}</h3>
         {/if}
       </div>
     {/each}

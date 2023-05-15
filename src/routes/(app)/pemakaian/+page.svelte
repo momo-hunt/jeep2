@@ -7,7 +7,10 @@
   import HeaderTitle from "$lib/components/HeaderTitle.svelte";
 
   onMount(() => {
-    list.fetchData($list, "pemakaian", { limit: 10, page: 1 });
+    list.fetchData($list, "pemakaian", {
+      limit: 10,
+      page: 1,
+    });
   });
 
   // $: console.log($list);
