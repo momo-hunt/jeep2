@@ -19,8 +19,16 @@
       dispatch("submit", { ...submitted, load: false });
 
       if (result.status == 200)
-        return dispatch("submit", { ...submitted, success: result.data });
-      return dispatch("submit", { ...submitted, error: result.data });
+        return dispatch("submit", {
+          ...submitted,
+          success: true,
+          data: result.data,
+        });
+      return dispatch("submit", {
+        ...submitted,
+        error: true,
+        data: result.data,
+      });
     };
   }}
 >

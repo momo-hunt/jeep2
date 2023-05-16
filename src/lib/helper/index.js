@@ -57,3 +57,18 @@ export const formatFormTime = () => {
   return t + ":00";
   // HH-mm-ss
 };
+
+export const formatNumberRibuan = (n) => {
+  n = n.toString().split("").reverse();
+  let res = [];
+  let num = 3;
+  n.forEach((e, i) => {
+    if (i == num) {
+      res.push(".");
+      num = num * 2;
+    }
+    res.push(e);
+  });
+  return res.reverse().join("");
+  // 000.000
+};

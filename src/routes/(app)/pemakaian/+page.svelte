@@ -2,7 +2,6 @@
   import ListView from "./ListView.svelte";
   import { list } from "$lib/stores";
   import { onMount } from "svelte";
-  import Button from "$lib/elements/Button.svelte";
   import Spinner from "$lib/elements/Spinner.svelte";
   import HeaderTitle from "$lib/components/HeaderTitle.svelte";
 
@@ -27,8 +26,26 @@
 {/if}
 
 {#if $list.pemakaian.more && !$list.pemakaian.loading}
-  <Button on:click={() => list.fetchMore($list, "pemakaian")}>Lebih</Button>
+  <button type="button" on:click={() => list.fetchMore($list, "pemakaian")}
+    >Lebih banyak</button
+  >
 {/if}
 
 <style>
+  button {
+    margin: 2rem 1rem;
+    cursor: pointer;
+    width: calc(100% - 2rem);
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 1px solid;
+    border-color: var(--bg-1);
+    color: var(--bg-2);
+  }
+
+  button:hover {
+    transition: all 0.3s ease;
+    border-color: var(--bg-2);
+    color: var(--bg-3);
+  }
 </style>

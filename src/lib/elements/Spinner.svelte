@@ -2,7 +2,7 @@
   export let size = "";
 </script>
 
-<section>
+<section class:l={size}>
   <div class="lds-dual-ring" class:l={size} />
   <span><slot /></span>
 </section>
@@ -20,9 +20,32 @@
     align-items: center;
   }
 
+  section.l {
+    height: 4.5rem;
+  }
   section span {
     position: relative;
     /* background: white; */
+    animation: spanAni 4s linear infinite;
+  }
+
+  @keyframes spanAni {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    20% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    80% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
   }
 
   .lds-dual-ring {

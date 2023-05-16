@@ -1,5 +1,5 @@
 <script>
-  import { getHalfMonth, tanggalIndo } from "$lib/helper";
+  import { getHalfMonth, tanggalIndo, formatNumberRibuan } from "$lib/helper";
 
   export let list;
 </script>
@@ -13,7 +13,7 @@
       </div>
       <div class="right">
         <h3>{d.keperluan} ({d.tujuan})</h3>
-        <p>Km {d.km_akhir}</p>
+        <p>Km {formatNumberRibuan(d.km_akhir)}</p>
         <small class="muted"
           >{d.created_by.name} - {tanggalIndo(d.created_at)}</small
         >
@@ -24,12 +24,15 @@
 </ul>
 
 <style>
+  ul {
+    background: var(--bg-5);
+  }
   ul li {
     position: relative;
     display: flex;
     gap: 0.5rem;
     padding: 1rem;
-    border-bottom: 1px solid var(--bg-5);
+    border-bottom: 1px solid var(--bg-1);
   }
 
   ul li:hover {
@@ -48,6 +51,7 @@
     padding-right: 1rem;
     border-right: 1px solid var(--bg-1);
     text-align: right;
+    color: var(--bg-2);
   }
 
   .left > div {
