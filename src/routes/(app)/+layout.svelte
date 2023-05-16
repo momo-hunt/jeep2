@@ -1,5 +1,6 @@
 <script>
   import { page } from "$app/stores";
+  export let data;
 
   let links = [
     { label: "Beranda", href: "/" },
@@ -8,7 +9,10 @@
   ];
 </script>
 
-<div class="title">- - Jeep Kaba - -</div>
+<div class="title">
+  <span>- Jeep Kaba -</span>
+  <span>{data?.user?.name}</span>
+</div>
 <header>
   {#each links as { label, href }}
     <a {href} class:active={href == $page?.url?.pathname}>{label}</a>
@@ -21,8 +25,9 @@
 
 <style>
   .title {
-    margin: 0.2rem;
-    text-align: center;
+    margin: 0.2rem 1rem;
+    display: flex;
+    justify-content: space-between;
   }
 
   header {
