@@ -9,12 +9,21 @@ export const actions = {
 
       if (result.error) return fail(400, result.error);
 
-      return { result };
+      return result;
     } catch (error) {
       return fail(400, error);
     }
   },
 
-  update: async ({ request, locals }) => {},
+  update: async ({ request, locals }) => {
+    const { id, ...data } = Object.fromEntries(await request.formData());
+
+    const result = await locals.db.collection("pemakaian").update(id, data);
+
+    if (result.error) return fail(400, result.error);
+
+    return result;
+  },
+
   delete: async ({ request, locals }) => {},
 };

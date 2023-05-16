@@ -81,11 +81,16 @@ const objStore = () => {
   const { subscribe, set, update } = writable({});
   return {
     subscribe,
-    set: async (url) => {
+    get: async (url) => {
       set({ loading: true });
       const res = await fetch(url);
       const respon = await res.json();
       set(respon);
+    },
+    set: async (data) => {
+      set({ loading: true });
+      await new Promise((res) => setTimeout(() => res(), 1000));
+      set(data);
     },
   };
 };

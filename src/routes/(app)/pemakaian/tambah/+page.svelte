@@ -8,13 +8,13 @@
   function onSubmit(e) {
     let res = e.detail;
     console.log(res);
-    if (res.success) goto(`/pemakaian/${res.success.id}`);
+    goto(`/pemakaian/${res.id}`);
   }
 </script>
 
 <HeaderTitle title="Tambah Pemakaian" />
 
-<FormTambah {data} on:submit={onSubmit} />
+<FormTambah {data} on:success={onSubmit} on:error />
 
 <style>
 </style>

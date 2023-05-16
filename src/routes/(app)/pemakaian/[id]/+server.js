@@ -7,7 +7,7 @@ export const GET = async ({ params, locals }) => {
 
     let s = sopir.filter((s) => s.id == data.sopir)[0];
     data.sopir = { id: s.id, name: s.sopir };
-    console.log(data, sopir);
+    // console.log(data, sopir);
 
     return json(data);
   } catch (error) {}

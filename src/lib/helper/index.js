@@ -4,7 +4,11 @@ export const getHalfMonth = (d) => {
 };
 
 export const tanggalIndo = (d) => {
-  let d1 = new Date(d).toLocaleDateString("en-GB");
+  let d1 = new Date(d).toLocaleDateString("id-ID", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
   let t1 = new Date(d).toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",
@@ -32,26 +36,16 @@ export const viewTanggalIndo = (d, type) => {
   }
 };
 
-export const formatDateForm = (d) => {
-  let d1 = new Date(d).toISOString().split("T")[0];
-  return d1;
-};
-
-export const formatTimeForm = (d) => {
-  let d1 = new Date(d).toLocaleTimeString("en-GB");
-  console.log(d1);
-  return d1;
-};
-
-export const formatFormDate = () => {
-  let d = new Date().toLocaleDateString("fr-CA");
+export const formatFormDate = (dd) => {
+  let d = dd ? new Date(dd) : new Date();
   // console.log(d);
-  return d;
+  return d.toLocaleDateString("fr-CA");
   // YYYY-MM-DD
 };
 
-export const formatFormTime = () => {
-  let t = new Date().toLocaleTimeString("en-GB");
+export const formatFormTime = (tt) => {
+  let t = tt ? new Date(tt) : new Date();
+  t = t.toLocaleTimeString("en-GB");
   t = t.substring(0, 2);
   // console.log(t);
   return t + ":00";
@@ -59,6 +53,7 @@ export const formatFormTime = () => {
 };
 
 export const formatNumberRibuan = (n) => {
+  if (!n) return;
   n = n.toString().split("").reverse();
   let res = [];
   let num = 3;

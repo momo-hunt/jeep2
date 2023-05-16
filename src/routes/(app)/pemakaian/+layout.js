@@ -2,10 +2,25 @@ import { readonly } from "svelte/store";
 
 export const load = () => {
   let fields = [
-    { name: "no_spj", label: "No SPJ", type: "text" },
+    {
+      name: "no_spj",
+      label: "No SPJ",
+      type: "text",
+      placeholder: "Isi jika ada!",
+    },
     { name: "sopir", label: "Sopir", type: "select" },
-    { name: "tujuan", label: "Tujuan", type: "text" },
-    { name: "keperluan", label: "Keperluan", type: "text" },
+    {
+      name: "tujuan",
+      label: "Tujuan",
+      type: "text",
+      placeholder: "Tempat tujuan",
+    },
+    {
+      name: "keperluan",
+      label: "Keperluan",
+      type: "text",
+      placeholder: "Contoh : Dinas antar...",
+    },
     { name: "tanggal_berangkat", label: "Tanggal Berangkat", type: "date" },
     { name: "jam_berangkat", label: "Jam Berangkat", type: "time" },
     { name: "tanggal_kembali", label: "Tanggal Kembali", type: "date" },
@@ -19,8 +34,15 @@ export const load = () => {
       readonly: true,
     },
   ];
+
+  let listSopir = [
+    ["Santoso", "1"],
+    ["Askep", "2"],
+    ["Lain", "3"],
+  ];
   return {
     fields,
+    listSopir,
   };
 };
 

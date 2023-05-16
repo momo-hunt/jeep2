@@ -4,4 +4,12 @@
   <a href="/pemakaian/tambah">Tambah</a>
 </header>
 
-<slot />
+<section>
+  <slot />
+</section>
+
+<style>
+  section {
+    margin-bottom: 4rem;
+  }
+</style>

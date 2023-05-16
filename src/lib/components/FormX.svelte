@@ -5,7 +5,7 @@
   const dispatch = createEventDispatcher();
   export let action;
   export let title = undefined;
-  let submitted = { load: false };
+  export let loading = false;
 </script>
 
 <form
@@ -13,22 +13,13 @@
   {action}
   method="post"
   use:enhance={() => {
-    dispatch("submit", { ...submitted, load: true });
+    loading = true;
     return async ({ result }) => {
+      loading = false;
       console.log("result " + title, result);
-      dispatch("submit", { ...submitted, load: false });
 
-      if (result.status == 200)
-        return dispatch("submit", {
-          ...submitted,
-          success: true,
-          data: result.data,
-        });
-      return dispatch("submit", {
-        ...submitted,
-        error: true,
-        data: result.data,
-      });
+      if (result.status == 200) return dispatch("success", result.data);
+      return dispatch("error", result.data);
     };
   }}
 >

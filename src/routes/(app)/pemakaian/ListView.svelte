@@ -52,10 +52,12 @@
     border-right: 1px solid var(--bg-1);
     text-align: right;
     color: var(--bg-2);
+    opacity: 0.8;
   }
 
   .left > div {
     font-size: 1.2em;
+    font-weight: 500;
   }
 
   .right h3 {

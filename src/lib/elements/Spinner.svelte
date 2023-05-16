@@ -27,6 +27,7 @@
     position: relative;
     /* background: white; */
     animation: spanAni 4s linear infinite;
+    color: var(--bg-2);
   }
 
   @keyframes spanAni {
@@ -62,7 +63,7 @@
     margin: 12px;
     border-radius: 50%;
     border: 3px solid lightgray;
-    border-color: lightgray transparent lightgray transparent;
+    border-color: var(--bg-3) transparent var(--bg-3) transparent;
     animation: lds-dual-ring 1.2s linear infinite;
   }
 
