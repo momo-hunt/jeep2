@@ -3,7 +3,6 @@
   import { onMount } from "svelte";
   import { obj } from "$lib/stores";
   import FormX from "$lib/components/FormX.svelte";
-  import InputX from "$lib/elements/InputX.svelte";
   import Spinner from "$lib/elements/Spinner.svelte";
 
   import { formatDateForm, formatTimeForm } from "$lib/helper";
