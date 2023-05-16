@@ -32,7 +32,7 @@
     display: flex;
     gap: 0.5rem;
     padding: 1rem;
-    border-bottom: 1px solid var(--bg-1);
+    border-bottom: 1px solid var(--black);
   }
 
   ul li:hover {

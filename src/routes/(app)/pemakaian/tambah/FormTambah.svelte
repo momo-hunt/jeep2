@@ -4,10 +4,11 @@
   import Spinner from "$lib/elements/Spinner.svelte";
 
   export let data;
+  export let value;
   let title = "form-tambah-pemakaian";
   let action = "/pemakaian?/add";
-  let km_awal = 0;
-  let km_akhir = 0;
+  let km_awal = value?.km_akhir || null;
+  let km_akhir = null;
 
   let loading = false;
 </script>
@@ -32,7 +33,7 @@
       <input {...f} bind:value={km_awal} disabled={loading} />
     {:else if f.name == "km_akhir"}
       <label for={f.name}>{label}</label>
-      <input {...f} bind:value={km_akhir} disabled={loading} />
+      <input {...f} bind:value={km_akhir} disabled={loading} min={km_awal} />
     {:else if f.name == "km_pemakaian"}
       <label for={f.name}>{label}</label>
       <input {...f} value={km_akhir - km_awal} disabled={loading} />
@@ -50,6 +51,3 @@
     {/if}
   </button>
 </FormX>
-
-<style>
-</style>

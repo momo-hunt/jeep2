@@ -33,7 +33,7 @@
 
 <style>
   section {
-    background: var(--bg-5);
+    background: var(--black-1);
     margin-top: 1rem;
   }
 
@@ -44,15 +44,16 @@
 
   section > div > h3 {
     margin: 0 0.5rem;
-    color: var(--bg-2);
+    color: var(--bg-3);
   }
 
   section > div > span {
     opacity: 0.6;
-    color: var(--bg-3);
+    color: var(--bg-2);
   }
 
   article {
     margin: 1rem;
+    color: var(--bg-2);
   }
 </style>

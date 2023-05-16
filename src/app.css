@@ -12,8 +12,9 @@
   --bg-3: #e0fbfc;
   --bg-4: #ee6c4d;
   --bg-5: #293241;
-  --black: hsl(0, 0%, 10%);
-  --black-1: hsl(213, 20%, 19%);
+  --black: black;
+  --black-1: #232a34;
+  --black-2: #272e48;
   --white: hsl(0, 0%, 95%);
 }
 
@@ -22,6 +23,10 @@ body {
   font-size: 18px;
   background: var(--black);
   color: var(--white);
+}
+
+h1 {
+  font-size: 3em;
 }
 
 a {
