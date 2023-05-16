@@ -1,4 +1,5 @@
 <script>
+  import { fly, fade } from "svelte/transition";
   import { page } from "$app/stores";
   export let link;
   export let show;
@@ -6,8 +7,8 @@
 </script>
 
 {#if show}
-  <section>
-    <nav>
+  <section transition:fade>
+    <nav in:fly={{ x: -100 }} out:fly={{ x: -100 }}>
       <article>
         <h2>--Jeep Kaba--</h2>
         <h3>Admin-Dashboard</h3>
