@@ -10,8 +10,9 @@
 </script>
 
 <div class="title">
-  <span>- Jeep Kaba -</span>
+  <h4>- Jeep Kaba -</h4>
   <span>{data?.user?.name}</span>
+  <a href="/logout" role="button">Logout</a>
 </div>
 <header>
   {#each links as { label, href }}
@@ -25,9 +26,18 @@
 
 <style>
   .title {
-    margin: 0.2rem 1rem;
+    margin: 0.5rem 1rem;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .title h4 {
+    margin-right: auto;
+  }
+
+  .title a[role="button"] {
+    color: red;
   }
 
   header {
@@ -37,8 +47,6 @@
   }
 
   header a {
-    text-align: center;
-    width: 100%;
     padding: 0.5rem 1rem;
     background: inherit;
   }
