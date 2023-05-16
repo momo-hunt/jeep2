@@ -25,7 +25,7 @@
 
 <style>
   ul {
-    background: var(--bg-5);
+    background: var(--black-1);
   }
   ul li {
     position: relative;
@@ -36,7 +36,7 @@
   }
 
   ul li:hover {
-    background: var(--bg-1);
+    background: var(--black-1);
   }
 
   .backdrop {
