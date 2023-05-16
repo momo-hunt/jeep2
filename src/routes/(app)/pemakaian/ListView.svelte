@@ -1,7 +1,7 @@
 <script>
   import { getHalfMonth, tanggalIndo, formatNumberRibuan } from "$lib/helper";
 
-  export let list;
+  export let list = [];
 </script>
 
 <ul>
