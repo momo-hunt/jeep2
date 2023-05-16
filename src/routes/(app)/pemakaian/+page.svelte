@@ -31,7 +31,4 @@
 {/if}
 
 <style>
-  h2 {
-    margin: 1rem;
-  }
 </style>
