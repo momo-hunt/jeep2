@@ -26,13 +26,17 @@ const listStore = () => {
   });
   return {
     subscribe,
-    fetchData: async (old, name, { limit: limitx, page: pagex }) => {
+    fetchData: async (old, name, opt) => {
       set({ ...old, [name]: { ...old[name], loading: true } });
 
-      limitx = limitx ? limitx : old[name].limit;
-      pagex = pagex ? pagex : old[name].page;
+      const params = {
+        limit: opt.limit || old[name].limit,
+        page: opt.page || old[name].page,
+        collection: name,
+      };
+      const new_params = new URLSearchParams(params);
 
-      const res = await fetch(`/${name}?limit=${limitx}&page=${pagex}`);
+      const res = await fetch("/?" + new_params);
       const { data, total, sort, limit, page } = await res.json();
       set({
         ...old,
@@ -52,10 +56,15 @@ const listStore = () => {
     fetchMore: async (old, name) => {
       if (old[name].more) {
         set({ ...old, [name]: { ...old[name], loading: true } });
-        let limitx = old[name].limit;
-        let pagex = old[name].page + 1;
 
-        const res = await fetch(`/${name}?limit=${limitx}&page=${pagex}`);
+        const params = {
+          limit: old[name].limit,
+          page: old[name].page + 1,
+          collection: name,
+        };
+        const new_params = new URLSearchParams(params);
+
+        const res = await fetch("/?" + new_params);
         const { data, total, sort, limit, page } = await res.json();
 
         set({

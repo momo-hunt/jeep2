@@ -1,7 +1,7 @@
 <script>
-  import ListView from "./ListView.svelte";
-  import { list } from "$lib/stores";
   import { onMount } from "svelte";
+  import { list } from "$lib/stores";
+  import ListView from "./ListView.svelte";
   import Spinner from "$lib/elements/Spinner.svelte";
   import HeaderTitle from "$lib/components/HeaderTitle.svelte";
 
@@ -17,7 +17,7 @@
 
 <HeaderTitle title="Daftar Pemakaian" />
 
-{#if !$list.pemakaian.loading || $list.pemakaian.data.length > 0}
+{#if !$list.pemakaian.loading && $list.pemakaian.data.length > 0}
   <ListView list={$list?.pemakaian?.data} />
 {/if}
 
