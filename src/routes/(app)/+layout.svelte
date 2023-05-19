@@ -6,6 +6,7 @@
     { label: "Beranda", href: "/" },
     { label: "Pemakaian", href: "/pemakaian" },
     { label: "Tambah", href: "/pemakaian/tambah" },
+    { label: "BBM", href: "/bbm" },
   ];
 </script>
 
@@ -44,6 +45,7 @@
     display: flex;
     background: var(--bg-5);
     margin-bottom: 1rem;
+    overflow-x: auto;
   }
 
   header a {

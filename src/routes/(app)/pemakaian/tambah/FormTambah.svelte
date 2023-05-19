@@ -9,6 +9,12 @@
   let action = "/pemakaian?/add";
   let km_awal = value?.km_akhir || null;
   let km_akhir = null;
+  let tgl = {
+    tanggal_berangkat: null,
+    tanggal_kembali: null,
+    jam_berangkat: null,
+    jam_kembali: null,
+  };
 
   let loading = false;
 </script>
@@ -17,10 +23,10 @@
   {#each data?.fields as { label, ...f }}
     {#if f.type == "date"}
       <label for={f.name}>{label}</label>
-      <input {...f} value={formatFormDate()} disabled={loading} />
+      <input {...f} value={formatFormDate(tgl[f.name])} disabled={loading} />
     {:else if f.type == "time"}
       <label for={f.name}>{label}</label>
-      <input {...f} value={formatFormTime()} disabled={loading} />
+      <input {...f} value={formatFormTime(tgl[f.name])} disabled={loading} />
     {:else if f.type == "select"}
       <label for={f.name}>{label}</label>
       <select {...f} disabled={loading}>

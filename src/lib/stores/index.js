@@ -30,25 +30,19 @@ const listStore = () => {
       set({ ...old, [name]: { ...old[name], loading: true } });
 
       const params = {
-        limit: opt.limit || old[name].limit,
-        page: opt.page || old[name].page,
+        ...opt,
         collection: name,
       };
-      const new_params = new URLSearchParams(params);
 
-      const res = await fetch("/?" + new_params);
-      const { data, total, sort, limit, page } = await res.json();
+      const res = await fetch("/?req=" + JSON.stringify(params));
+      const respon = await res.json();
       set({
         ...old,
         [name]: {
           ...old[name],
           loading: false,
-          data,
-          total,
-          sort,
-          limit,
-          page,
-          more: total > limit * page,
+          ...respon,
+          more: respon.total > respon.limit * respon.page,
         },
       });
     },
@@ -58,26 +52,20 @@ const listStore = () => {
         set({ ...old, [name]: { ...old[name], loading: true } });
 
         const params = {
-          limit: old[name].limit,
+          ...opt,
           page: old[name].page + 1,
           collection: name,
         };
-        const new_params = new URLSearchParams(params);
 
-        const res = await fetch("/?" + new_params);
-        const { data, total, sort, limit, page } = await res.json();
-
+        const res = await fetch("/?req=" + JSON.stringify(params));
+        const respon = await res.json();
         set({
           ...old,
           [name]: {
             ...old[name],
             loading: false,
-            data: [...old[name].data, ...data],
-            total,
-            sort,
-            limit,
-            page,
-            more: total > limit * page,
+            ...respon,
+            more: respon.total > respon.limit * respon.page,
           },
         });
       }

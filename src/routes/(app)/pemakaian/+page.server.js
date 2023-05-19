@@ -4,6 +4,7 @@ export const actions = {
   add: async ({ request, locals }) => {
     try {
       const data = Object.fromEntries(await request.formData());
+      // return data;
 
       const result = await locals.db.collection("pemakaian").create(data);
 

@@ -74,9 +74,11 @@ export default class DB {
     return this.fetchData();
   };
 
-  fetchData = async () => {
+  fetchData = async (params) => {
     try {
       let time = new Date().getTime().toString();
+
+      if (params) this.req = params;
       this.req["token"] = this.token;
       console.log("req fetch-", this.req);
       const res = await fetch(
@@ -84,7 +86,7 @@ export default class DB {
       );
 
       const respon = await res.json();
-      // console.log("result fetch->", respon);
+      if (respon.error) console.log("error fetch-", respon);
       return respon;
     } catch (err) {
       return error(400, err.message);

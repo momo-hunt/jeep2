@@ -1,12 +1,10 @@
 <script>
-  import { createEventDispatcher } from "svelte";
-  const dispatch = createEventDispatcher();
   export let show = false;
 </script>
 
 {#if show}
   <section>
-    <button class="backdrop" on:click={() => dispatch("close")}>&nbsp;</button>
+    <button class="backdrop" on:click={() => (show = !show)}>&nbsp;</button>
     <article>
       <slot />
     </article>

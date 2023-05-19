@@ -3,7 +3,7 @@
 </script>
 
 <header>
-  <button class="menubar" on:click={() => (show = true)}>=</button>
+  <button class="menubar" on:click={() => (show = true)}>&Xi;</button>
 </header>
 
 <style>

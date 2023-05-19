@@ -3,6 +3,25 @@ export const getHalfMonth = (d) => {
   return m ? m : null;
 };
 
+export const distanceDate = (fullday) => {
+  let dAgo = new Date(fullday);
+  let dNow = new Date();
+
+  let diff = parseInt((dNow - dAgo) / (1000 * 60 * 60 * 24), 10);
+
+  let text;
+  if (parseInt(diff / 365) > 0) {
+    text = parseInt(diff / 365) + " tahun lalu";
+  } else if (parseInt(diff / 30) > 0) {
+    text = parseInt(diff / 30) + " bulan lalu";
+  } else {
+    text = diff + " hari lalu";
+  }
+
+  // console.log(parseInt(diff / 30), text);
+  return text;
+};
+
 export const tanggalIndo = (d) => {
   let d1 = new Date(d).toLocaleDateString("id-ID", {
     day: "numeric",
@@ -54,6 +73,15 @@ export const formatFormTime = (tt) => {
 
 export const formatNumberRibuan = (n) => {
   if (!n) return;
+  n = n > 0 ? n : -n;
+
+  if (parseInt(n) - n != 0) {
+    n = n.toFixed(2);
+    n = n.toString().replace(".", ",");
+    return n;
+    // 00,00
+  }
+
   n = n.toString().split("").reverse();
   let res = [];
   let num = 3;
